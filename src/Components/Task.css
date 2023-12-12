@@ -1,0 +1,44 @@
+body {
+  min-height: 100vh;
+  text-align: center;
+  background-color: rgb(75, 69, 69);
+}
+
+input {
+  margin-bottom:20px;
+  height: 30px;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: large;
+}
+
+.taskList {
+  height: 6vh;
+  width: 60vw;
+  margin:10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 50px 0 0 5px;
+  background-color: white;
+  box-shadow: 4px 4px 10px black;
+}
+
+h3 {
+  margin-left: 20px;
+}
+
+.taskList button {
+  height: 100%;
+  width: 10%;
+  background-color: green;
+  color: white;
+  font-weight: bolder;
+}
+
+
+h1{
+    color: white;
+}
