@@ -8,9 +8,17 @@ input {
   margin-bottom:20px;
   height: 30px;
   width: 300px;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   text-align: center;
   font-size: large;
+}
+
+.create,.backToFocus{
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  background-color: green;
+  border-radius: 0 10px 10px 0;
 }
 
 .taskList {

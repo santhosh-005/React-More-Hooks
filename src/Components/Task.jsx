@@ -20,15 +20,20 @@ function Task() {
   const [task, dispatch] = useReducer(reducer, []);
   const inputRef = useRef(null);
 
-  useEffect(() => {
-    // console.log("useeffect called");
+  const handleFocus=()=>{
     inputRef.current.focus();
+  }
+
+  useEffect(() => {
+    handleFocus()
   }, []);
 
-  const handleClick = (text) => {
-    // console.log("handleclick called");
-    dispatch({ type: "ADDTASK", text: text });
-    inputRef.current.focus();
+  const handleClick = () => {
+    if ( inputRef.current.value !==""){
+      dispatch({ type: "ADDTASK", text: inputRef.current.value });
+      inputRef.current.value=""
+      inputRef.current.focus();
+    }
   };
 
   const handleToggleTask = (index) => {
@@ -39,14 +44,17 @@ function Task() {
   return (
     <div>
       <h1>TODO LIST</h1>
+      <div>
       <input
         type="text"
         onKeyDown={(e) => {
-          e.key == "Enter" ? (handleClick(e.target.value),e.target.value=""): null;
+          e.key == "Enter" && handleClick();
         }}
         ref={inputRef}
         placeholder="Enter your task"
       />
+        <button className="create" onClick={handleClick}>Create</button>
+      </div>
 
       {task.map((each, index) => {
         return (
@@ -60,6 +68,12 @@ function Task() {
           </div>
         );
       })}
+
+{
+        task.length >= 10 && (
+          <button onClick={handleFocus} style={{backgroundColor:'blue'}} className="backToFocus">Back To Write</button>
+        )
+      }
     </div>
   );
 }
